@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Declan's Hangman's Altar</title>
-    <link rel="stylesheet" src = "style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script type="text/javascript" src = "script.js" defer> </script>
   </head>
   <body>
+  <header>
     <h1> Fancy a game of hangman? </h1>
     <h3> Instructions </h3>
     <p> To play, simply input the word to be guessed, press "new game" and then the other players
@@ -14,17 +15,44 @@
         You may also attempt to solve the entire puzzle by inputting your guess and pressing "solve puzzle".
         Be sure to input your letter guesses into the guess box, SINGLE LETTER GUESSES ONLY.
     </p>
+  </header>
 
-    <div>
-      <input class = "input" type = "text" />
-      <input class = "button" type = "button" value = "guess a letter" />
+  <main>
+
+
+
+    <div id = "game-interaction">
+
+      <div id = "game-word-wrapper">
+        <div class = "letter"> H </div>
+        <div class = "letter"> A </div>
+        <div class = "letter"> M </div>
+      </div>
+
+      <div id="letter-input">
+        <input class = "input letterGuess" type = "text" />
+        <input class = "button" type = "button" value = "guess a letter" />
+      </div>
+
+      <div id="large-input">
+        <input class = "input wordGuess" type = "text" placeholder="enter a new word or guess the puzzle" />
+        <input class = "button" type="button" value="solve the puzzle"/>
+        <input class = "button" type="button" value="new game"/>
+      </div>
     </div>
-    <div id="large-input">
-      <input class = "input" type = "text" placeholder="enter a new word or guess the puzzle" />
-      <input class = "button" type="button" value="solve the puzzle"/>
-      <input class = "button" type="button" value="new game"/>
+    <div id = "hangman-wrapper">
+        <div id = "one" class = "hangmansAltar vertical"> </div>
+        <div id = "three" class = "hangmansAltar horizontal"> </div>
+        <div id = "two" class  = "hangmansAltar vertical"> </div>
+        <div id = "four" class = "hangmansAltar horizontal"> </div>
     </div>
 
+
+  </main>
+
+  <footer>
+    <h4> © Copyright 2017 </h4>
+  </footer>
 
   </body>
 </html>
