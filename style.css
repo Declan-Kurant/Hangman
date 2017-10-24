@@ -27,7 +27,6 @@ main{
   position: relative;
   height : 500px;
   width : 500px;
-  border : 1px solid black;
 }
 
 .hangmansAltar{
@@ -35,6 +34,9 @@ main{
   border  : 3px solid black;
   height : 100px;
   width: : 3px;
+}
+.hangmanBody{
+  position: absolute;
 }
 
 #top{
@@ -45,7 +47,7 @@ main{
 #post{
   top : 10%;
   left : 48%;
-  height : 350px;
+  height : 330px;
 }
 #rope{
   top : 10%;
@@ -53,6 +55,54 @@ main{
 }
 #bottom{
   transform: rotate(90deg);
-  bottom : 8%;
+  bottom : 12%;
   left : 48%;
+}
+
+#head{
+   background: purple;
+   width: 50px;
+   height: 50px;
+   border-radius: 50px;
+   top : 30%;
+   right : 25.5%;
+}
+#body{
+  background : purple;
+  width : 5px;
+  height : 120px;
+  top : 40%;
+  right : 30%;
+}
+#rightArm {
+  background: purple;
+  width: 5px;
+  height : 80px;
+  transform: rotate(45deg);
+  top : 40%;
+  right : 36%;
+}
+#leftArm {
+  background: purple;
+  width: 5px;
+  height : 80px;
+  transform: rotate(135deg);
+  top : 40%;
+  right : 24%;
+}
+#leftLeg {
+  background: purple;
+  width: 5px;
+  height : 70px;
+  transform: rotate(34deg);
+  top : 61%;
+  right : 34%;
+}
+#rightLeg {
+  background: purple;
+  width: 5px;
+  height : 70px;
+  transform: rotate(135deg);
+  top : 61%;
+  right : 25%;
 }
