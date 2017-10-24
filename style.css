@@ -23,31 +23,36 @@ main{
   width: 25px;
   height: 25px;
 }
-
-#one {
-  border : 5px solid black;
-  width: 1px;
-  height: 350px;
-  display: inline-block;
-
+#hangman-wrapper{
+  position: relative;
+  height : 500px;
+  width : 500px;
+  border : 1px solid black;
 }
 
-#two {
-  border : 5px solid black;
-  width: 1px;
-  height: 200px;
-  display: inline-block;
+.hangmansAltar{
+  position : absolute;
+  border  : 3px solid black;
+  height : 100px;
+  width: : 3px;
 }
 
-#three {
-  border : 5px solid black;
-  width: 150px;
-  height: 1px;
-  display: inline-block;
+#top{
+  top: 0%;
+  transform : rotate(90deg);
+  right : 40%;
 }
-#four {
-  border : 5px solid black;
-  width: 350px;
-  height: 1px;
-  display: inline-block;
+#post{
+  top : 10%;
+  left : 48%;
+  height : 350px;
+}
+#rope{
+  top : 10%;
+  right: 30%;
+}
+#bottom{
+  transform: rotate(90deg);
+  bottom : 8%;
+  left : 48%;
 }
