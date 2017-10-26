@@ -4,7 +4,8 @@ var solvePuzzleButton = $('.solve')
 var guessLetterButton = $('.letterGuessButton')
 var previouslyGuessed = []
 var triesLeft = 6
-
+$('.hangmanBody').hide()
+var lettersInWord = []
 
 
 newGameButton.on('click', makeNewGame)
@@ -12,18 +13,12 @@ solvePuzzleButton.on('click', solvePuzzleCheck)
 guessLetterButton.on('click', guessLetterExec)
 
 function makeNewGame(){
-  console.log('makenewgame works')
-  wordEntryElement = $('.wordEntry')
-  wordEntry = wordEntryElement.val()     //make sure this is defined globally
+  triesLeft = 6
+  wordEntry = $('.wordEntry').val()
   lettersInWord = wordEntry.split('')
+  previouslyGuessed = []
   $('.hangmanBody').hide()
-  
-
-
   $('#game-word-display').html(wordEntry) //THIS WORKS WHEN IT'S HERE
-  // console.log($('.wordEntry'))
-  // $(".wordEntry").val() = ''
-  // console.log($('.wordEntry'))
 
   function resetField() {
     $('.wordEntry').closest('form').find("input[type=text], textarea").val("")
@@ -50,36 +45,33 @@ function makeNewGame(){
 
 function guessLetterExec (){
   letterGuess = $('.letterGuess').val()
-  console.log (letterGuess)
-  triesLeft -=1
-  bodyPartAdd()
+  if (lettersInWord.includes(letterGuess)){
+    // GUESS IS CORRECT -->REVEAL DIVS AS NEEDED
+      console.log('gues is gud');
+    var letterDivs = document.getElementsByClassName('letter')
+    if (true/* data-letter == letterGuess */){
+      //toggle display class
+    }
 
+    // find divs that contain this letter by scanning data attributes
+      //if data-letter = letterGuess
 
-  // if (lettersInWord.includes(letterGuess)){
-  //   var letterDivs = document.getElementsByClassName('letter')
-  //   if (true/* data-letter == letterGuess */){
-  //     //toggle display class
-  //   }
-  //
-  //   // find divs that contain this letter by scanning data attributes
-  //     //if data-letter = letterGuess
-  //
-  //   // run the div changing function (toggle the class)
-  //
-  // } else if (previouslyGuessed.includes(letterGuess)) {
-  //   // letter has been guessed already
-  //   // do nothing
-  //   alert ('this letter has already been guessed--try again')
-  //
-  // } else{
-  //   triesLeft -=1
-  //   if (triesLeft === 0){
-  //     alert ("Wow, you lose.")
-  //   }
-  //   previouslyGuessed.push(letterGuess)  //appends to array of guessed letters
-  //   bodyPartAdd();     //adds body part to hangman
-  // }
-  // letterGuess = null                   //resets stored letter to allow for new guess
+    // run the div changing function (toggle the class)
+
+  } else if (previouslyGuessed.includes(letterGuess)) {
+    // letter has been guessed already
+    // do nothing
+    alert ('this letter has already been guessed--try again')
+
+  } else{
+    triesLeft -=5
+    if (triesLeft <= 0){
+      alert ("Wow, you lose.")
+    }
+    previouslyGuessed.push(letterGuess)  //appends to array of guessed letters
+    bodyPartAdd();     //adds body part to hangman
+  }
+  letterGuess = null                   //resets stored letter to allow for new guess
 }
 function bodyPartAdd(){
   switch (triesLeft){
