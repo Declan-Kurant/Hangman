@@ -4,12 +4,10 @@ var solvePuzzleButton = $('.solve')
 var guessLetterButton = $('.letterGuessButton')
 var previouslyGuessed = []
 var triesLeft = 6
-$('.hangmanBody').hide()
+$('.hangmanBody').show()
 var lettersInWord = []
 var lettersInPlay = []
 var gameBoard = $('#gameWordWrapper')
-
-
 newGameButton.on('click', makeNewGame)
 solvePuzzleButton.on('click', solvePuzzleCheck)
 guessLetterButton.on('click', guessLetterExec)
@@ -20,55 +18,44 @@ function makeNewGame(){
   lettersInWord = wordEntry.split('')
   lettersInPlay = lettersInWord
   previouslyGuessed = []
+  $('.previouslyGuessedDisplay').html('')
+
   $('.hangmanBody').hide()
   $('.wordEntry').val('') //RESETS INPUT BOX
   $('.letter').remove()   //RESETS GAME BOARD
 
   for(var i = 0; i < lettersInWord.length; i++){  //MAKES NEW GAME BOARD
-    gameBoard.append($("<div class ='letter' data-letter =" + lettersInWord[i] + "> <div class = 'indivLetter'>" + lettersInWord[i] + "</div> </div>"))
+    gameBoard.append($("<div class ='letter' data-letter =" + lettersInWord[i] + "> <div class = 'indivLetter " +lettersInWord[i] +  "'>" + lettersInWord[i] + "</div> </div>"))
   }
   $('.indivLetter').hide() //HIDES LETTERS INSIDE BOXES
-
 }
 
 
 function guessLetterExec (){
   letterGuess = $('.letterGuess').val()
+  $('.letterGuess').val('')
+
   if (lettersInWord.includes(letterGuess)){
-    // GUESS IS CORRECT -->REVEAL DIVS AS NEEDED
-      console.log('gues is gud');
-      // here: remove letterGuess from lettersInPlay
+    $('.'+letterGuess).show()
+      //REMOVES LETTERGUESS FROM LETTERSINPLAY
+      lettersInPlay = lettersInPlay.filter(val => val !== letterGuess)
+      if (lettersInPlay.length == 0){
+        alert ('you guessed it! good job!')
+      }
 
-      // NO MORE LETTERS TO GUESS MEANS THEY WON
-      // if (lettersInPlay.val == 0){
-      //   alert ()
-      //   break
-      // }
 
-    //SHOWS LETTER IF GUESSED CORRECT
-    var letterDivs = document.getElementsByClassName('letter')
-    if (true/* data-letter == letterGuess */){
-      //toggle text div class
-    }
-
-    // find divs that contain this letter by scanning data attributes
-      //if data-letter = letterGuess
-
-    // run the div changing function (toggle the class)
 
   } else if (previouslyGuessed.includes(letterGuess)) {
-    // letter has been guessed already
-    // do nothing
     alert ('this letter has already been guessed--try again')
-
   } else{
     triesLeft -=1
     previouslyGuessed.push(letterGuess)  //appends to array of guessed letters
     bodyPartAdd();
     if (triesLeft <= 0){
       alert ("Wow, you lose.")
-    }    //adds body part to hangman
+    }
   }
+  $('.previouslyGuessedDisplay').html(previouslyGuessed + ' ')
   letterGuess = null                   //resets stored letter to allow for new guess
 }
 function bodyPartAdd(){
