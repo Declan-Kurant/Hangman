@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Declan's Hangman's Altar</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>
     <script type="text/javascript" src = "script.js" defer> </script>
   </head>
   <body>
@@ -16,24 +17,24 @@
         Be sure to input your letter guesses into the guess box.
     </p>
   </header>
-
+  <h2 id = "game-word-display"> HAM </h2>
   <main>
     <div id = "game-interaction">
       <div id = "game-word-wrapper">
-        <div class = "letter"> H </div>
+        <div class = "letter" data-letter="H"> H </div>
         <div class = "letter"> A </div>
         <div class = "letter"> M </div>
       </div>
 
       <div id="letter-input">
         <input class = "input letterGuess" type = "text" placeholder="enter a 1 letter"/>
-        <input class = "button" type = "button" value = "guess a letter" />
+        <input class = "button letterGuessButton" type = "button" value = "guess a letter" />
       </div>
 
       <div id="large-input">
-        <input class = "input wordGuess" type = "text" placeholder="enter a new word or guess the puzzle" />
-        <input class = "button" type="button" value="solve the puzzle"/>
-        <input class = "button" type="button" value="new game"/>
+        <input class = "input wordEntry" type = "text" placeholder="solve puzzle or restart" />
+        <input class = "button solve" type="button" value="solve the puzzle"/>
+        <input class = "button newGame" type="button" value="new game"/>
       </div>
     </div>
 
@@ -43,8 +44,8 @@
         <div id = "rope" class  = "hangmansAltar vertical"> </div>
         <div id = "bottom" class = "hangmansAltar horizontal"> </div>
 
-        <div id = "head" class = "hangmanBody"> </div>
-        <div id = "body" class = "hangmanBody"> </div>
+        <div id = "head" class = "hangmanBody displayHangman"> </div>
+        <div id = "body" class = "hangmanBody "> </div>
         <div id = "leftArm" class = "hangmanBody"> </div>
         <div id = "rightArm" class = "hangmanBody"> </div>
         <div id = "leftLeg" class = "hangmanBody"> </div>
