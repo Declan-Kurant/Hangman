@@ -21,18 +21,13 @@ function makeNewGame(){
   lettersInPlay = lettersInWord
   previouslyGuessed = []
   $('.hangmanBody').hide()
+  $('.wordEntry').val('') //RESETS INPUT BOX
+  $('.letter').remove()   //RESETS GAME BOARD
 
-
-  //RESET INPUT FIELD HERE
-  // $('.wordEntry').val('')
-  // $(".wordEntry")[0].value = ''
-
-
-
-  for(let i = 0; i < lettersInWord.length; i++){
-    gameBoard.append($("<div class='letter'>" + lettersInWord[i]+ "</div>"))
+  for(var i = 0; i < lettersInWord.length; i++){  //MAKES NEW GAME BOARD
+    gameBoard.append($("<div class ='letter' data-letter =" + lettersInWord[i] + "> <div class = 'indivLetter'>" + lettersInWord[i] + "</div> </div>"))
   }
-  var letter = $(".letter")
+  $('.indivLetter').hide() //HIDES LETTERS INSIDE BOXES
 
 }
 
