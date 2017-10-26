@@ -64,12 +64,12 @@ function guessLetterExec (){
     alert ('this letter has already been guessed--try again')
 
   } else{
-    triesLeft -=5
+    triesLeft -=1
+    previouslyGuessed.push(letterGuess)  //appends to array of guessed letters
+    bodyPartAdd();
     if (triesLeft <= 0){
       alert ("Wow, you lose.")
-    }
-    previouslyGuessed.push(letterGuess)  //appends to array of guessed letters
-    bodyPartAdd();     //adds body part to hangman
+    }    //adds body part to hangman
   }
   letterGuess = null                   //resets stored letter to allow for new guess
 }
@@ -99,7 +99,8 @@ function bodyPartAdd(){
   }
 }
 function solvePuzzleCheck (){
-  if (true){ /// check the wordEntry input is equal to currently stored word entry
+  wordEntrySolve = $('.wordEntry').val()
+  if (wordEntrySolve==wordEntry){ /// check the wordEntry input is equal to currently stored word entry
     alert ("You guessed correct! You rock!")
   } else {
     alert ("Yikes, that was wrong. Try harder.")
