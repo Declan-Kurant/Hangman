@@ -6,9 +6,10 @@ main{
   flex-direction: column;
   padding-right: 40px;
 }
-#game-word-wrapper{
+#gameWordWrapper{
   display: flex;
   padding-bottom: 50px;
+  flex-direction: row;
 }
 #letter-input{
   padding-bottom: 13px;
@@ -17,11 +18,18 @@ main{
 
 .letter{
   border-radius: 25px;
-  border : 5px solid #000000;
+  border : 3px solid #000000;
   background: #73AD21;
   padding: 25px;
   width: 25px;
   height: 25px;
+  text-align: center;
+  vertical-align: middle;
+
+  font-size: 24px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-style: italic;
 }
 #hangman-wrapper{
   position: relative;

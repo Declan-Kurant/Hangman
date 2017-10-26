@@ -6,6 +6,8 @@ var previouslyGuessed = []
 var triesLeft = 6
 $('.hangmanBody').hide()
 var lettersInWord = []
+var lettersInPlay = []
+var gameBoard = $('#gameWordWrapper')
 
 
 newGameButton.on('click', makeNewGame)
@@ -16,30 +18,22 @@ function makeNewGame(){
   triesLeft = 6
   wordEntry = $('.wordEntry').val()
   lettersInWord = wordEntry.split('')
+  lettersInPlay = lettersInWord
   previouslyGuessed = []
   $('.hangmanBody').hide()
-  $('#game-word-display').html(wordEntry) //THIS WORKS WHEN IT'S HERE
 
-  function resetField() {
-    $('.wordEntry').closest('form').find("input[type=text], textarea").val("")
+
+  //RESET INPUT FIELD HERE
+  // $('.wordEntry').val('')
+  // $(".wordEntry")[0].value = ''
+
+
+
+  for(let i = 0; i < lettersInWord.length; i++){
+    gameBoard.append($("<div class='letter'>" + lettersInWord[i]+ "</div>"))
   }
-  resetField()
+  var letter = $(".letter")
 
-
-
-  // div making loop
-  // var gameBoard = document.createDocumentFragment()
-  // for (var i = 0; i < lettersInWord.length; i++) {
-  //   var letterDivs = document.createElement('div');
-  //   letterDivs.id = 'letter'+i
-  //   letterDivs.className = "letter";
-  //   gameBoard.appendChild(letterDivs);
-  //   document.getElementsById('letter'+i)[0].setAttribute('data-letter', lettersInWord[i])
-  // }
-    // document.body.appendChild(gameBoard);
-
-
-  //reset hangman person (toggle off the class)
 }
 
 
@@ -48,9 +42,18 @@ function guessLetterExec (){
   if (lettersInWord.includes(letterGuess)){
     // GUESS IS CORRECT -->REVEAL DIVS AS NEEDED
       console.log('gues is gud');
+      // here: remove letterGuess from lettersInPlay
+
+      // NO MORE LETTERS TO GUESS MEANS THEY WON
+      // if (lettersInPlay.val == 0){
+      //   alert ()
+      //   break
+      // }
+
+    //SHOWS LETTER IF GUESSED CORRECT
     var letterDivs = document.getElementsByClassName('letter')
     if (true/* data-letter == letterGuess */){
-      //toggle display class
+      //toggle text div class
     }
 
     // find divs that contain this letter by scanning data attributes
@@ -100,14 +103,10 @@ function bodyPartAdd(){
 }
 function solvePuzzleCheck (){
   wordEntrySolve = $('.wordEntry').val()
-  if (wordEntrySolve==wordEntry){ /// check the wordEntry input is equal to currently stored word entry
+  if (wordEntrySolve===wordEntry){
     alert ("You guessed correct! You rock!")
   } else {
+    $('.hangmanBody').show()
     alert ("Yikes, that was wrong. Try harder.")
   }
 }
-
-
-//     LETTER DIVS BELOW
-//   NOW ENTERING....
-//makes number of divs based on length of inputted word
