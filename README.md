@@ -8,13 +8,13 @@ To run the game, simply navigate to the webpage and begin playing.
 Web browser
 
 ### Brief Example
-[Here's a sample snapshot]  (https://i.imgur.com/qETewfM.png)
+Here's a sample snapshot : https://i.imgur.com/qETewfM.png
 
-##List of Features/User Stories
+###User Stories
 Users are able to input any word of their choosing, and guess either one letter at a time, or they may attempt to solve the entire puzzle
 
 
-##List of Technologies used
+###Technologies used
  * HTML
  * CSS
  * JavaScript
