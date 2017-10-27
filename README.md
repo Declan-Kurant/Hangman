@@ -15,7 +15,7 @@ Here's a sample snapshot : https://i.imgur.com/qETewfM.png
 Users are able to input any word of their choosing, and guess either one letter at a time, or they may attempt to solve the entire puzzle
 
 
-###Technologies used
+Technologies used
  * HTML
  * CSS
  * JavaScript
