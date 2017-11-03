@@ -11,6 +11,7 @@ var gameBoard = $('#gameWordWrapper')
 newGameButton.on('click', makeNewGame)
 solvePuzzleButton.on('click', solvePuzzleCheck)
 guessLetterButton.on('click', guessLetterExec)
+// Good job putting your global variables and click events at the top
 
 function makeNewGame(){
   triesLeft = 6
@@ -31,20 +32,17 @@ function makeNewGame(){
 }
 
 
-function guessLetterExec (){
+function guessLetterExec (){ // This function is a little lengthy and some of the logic could be broken out into other functions. I think the name of this function could be a little more clear too.
   letterGuess = $('.letterGuess').val()
   $('.letterGuess').val('')
 
   if (lettersInWord.includes(letterGuess)){
     $('.'+letterGuess).show()
-      //REMOVES LETTERGUESS FROM LETTERSINPLAY
-      lettersInPlay = lettersInPlay.filter(val => val !== letterGuess)
-      if (lettersInPlay.length == 0){
-        alert ('you guessed it! good job!')
-      }
-
-
-
+    //REMOVES LETTERGUESS FROM LETTERSINPLAY
+    lettersInPlay = lettersInPlay.filter(val => val !== letterGuess) // Nice job using filter!
+    if (lettersInPlay.length == 0){
+      alert ('you guessed it! good job!')
+    }
   } else if (previouslyGuessed.includes(letterGuess)) {
     alert ('this letter has already been guessed--try again')
   } else{
@@ -52,14 +50,15 @@ function guessLetterExec (){
     previouslyGuessed.push(letterGuess)  //appends to array of guessed letters
     bodyPartAdd();
     if (triesLeft <= 0){
-      alert ("Wow, you lose.")
+      setTimeout(function(){ alert("Wow, you lose.") }, 10)
+      //I'm trying to think of a way to answer your question about the alert happening before the body part is added, and I can't think of a way at the moment that isn't less hacky than this ^.  Alert is going to take precedence over any other function called at the same time - so putting the alert statement in a `setTimeout` method and giving the timer a very small amount of time (10 millisecs) will cause the bodyPartAdd function to run first.  Also, it might make more sense to put the `alert` in the bodyPartAdd function at `case 0:` - then you won't need an if statement.
     }
   }
   $('.previouslyGuessedDisplay').html(previouslyGuessed + ' ')
-  letterGuess = null                   //resets stored letter to allow for new guess
+  letterGuess = null //resets stored letter to allow for new guess
 }
 function bodyPartAdd(){
-  switch (triesLeft){
+  switch (triesLeft){ // Good use for a switch statement!
     case 5 :
       $('#head').show()
       break
@@ -81,14 +80,21 @@ function bodyPartAdd(){
     case -1 :
       alert ('code must be broken if you got here but you should have lost by now')
       break
+      // Ha, maybe take this out of your production branch, and use a `default` for your switch statement
   }
 }
 function solvePuzzleCheck (){
   wordEntrySolve = $('.wordEntry').val()
-  if (wordEntrySolve===wordEntry){
+  if (wordEntrySolve === wordEntry){
     alert ("You guessed correct! You rock!")
   } else {
     $('.hangmanBody').show()
     alert ("Yikes, that was wrong. Try harder.")
   }
 }
+
+// Your JS is well organized and pretty strong overall.  The game also plays well.  Good job with DOM reading and manipulation.  There is a little bit of abstracting that could be done, but not too much.  I think the biggest improvements could be made by just expanding what you already have.  Here are some suggestions...
+// - You could look into handling `keydown` events for if a user types `enter` on one of the `inputs`.  Alternatively, you could look into putting your input in a `form` and handling a `submit` event.
+// - Instead of alerts, have a message show up on the page
+// - A bit more color/styling/pizazz and would go along way
+// - Overall great job!

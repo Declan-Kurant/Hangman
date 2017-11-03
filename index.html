@@ -9,34 +9,37 @@
   </head>
   <body>
   <header>
-    <h1> Fancy a game of hangman? </h1>
-    <h3> Instructions </h3>
-    <p> To play, simply input the word to be guessed, press "new game" and then the other players
+    <h1>Fancy a game of hangman?</h1>
+    <h3>Instructions</h3>
+    <p>To play, simply input the word to be guessed, press "new game" and then the other players
         may begin guessing. If you grow tired of your word choice, type a new word and press "new game" to reset.
         You may also attempt to solve the entire puzzle by inputting your guess and pressing "solve puzzle".
         But careful! You only get one try.
         <br>
         Be sure to input your letter guesses into the guess box.
     </p>
-  </header>
+  </header> <!-- Good job using the semantic header/main elements -->
   <main>
-    <div id = "game-interaction">
-      <div id = "gameWordWrapper">
-        <div class = 'letter indivLetter'> W </div>
-        <div class = 'letter indivLetter'> O </div>
-        <div class = 'letter indivLetter'> R </div>
-        <div class = 'letter indivLetter'> D </div>
+    <div id="game-interaction">
+      <div id="gameWordWrapper">
+        <div class="letter indivLetter"> W </div>
+        <div class="letter indivLetter"> O </div>
+        <div class="letter indivLetter"> R </div>
+        <div class="letter indivLetter"> D </div>
+        <!-- HTML and CSS best practice is double quotes -->
+        <!-- HTML and CSS best practice for naming classes/IDS is `kabob-case` -->
       </div>
 
       <div id="letter-input">
-        <input class = "input letterGuess" type = "text" placeholder="enter a 1 letter"/>
-        <input class = "button letterGuessButton" type = "button" value = "guess a letter" />
+        <input class="input letterGuess" type="text" placeholder="enter a 1 letter"/>
+        <input class="button letterGuessButton" type="button" value="guess a letter" />
       </div>
-      <div> Letters that you've guessed </div>
+      <div>Letters that you've guessed</div>
       <div class ="previouslyGuessedDisplay"> </div>
       <br>
       <br>
       <br>
+      <!-- Adjust the margin on the `div` about instead of using line breaks -->
 
       <div id="large-input">
         <input class = "input wordEntry" type = "text" placeholder="solve puzzle or restart" />
@@ -46,24 +49,29 @@
     </div>
 
     <div id = "hangman-wrapper">
-        <div id = "post" class = "hangmansAltar vertical"> </div>
-        <div id = "top" class = "hangmansAltar horizontal"> </div>
-        <div id = "rope" class  = "hangmansAltar vertical"> </div>
-        <div id = "bottom" class = "hangmansAltar horizontal"> </div>
+      <div id = "post" class = "hangmansAltar vertical"> </div>
+      <div id = "top" class = "hangmansAltar horizontal"> </div>
+      <div id = "rope" class  = "hangmansAltar vertical"> </div>
+      <div id = "bottom" class = "hangmansAltar horizontal"> </div>
 
-        <div id = "head" class = "hangmanBody displayHangman"> </div>
-        <div id = "body" class = "hangmanBody "> </div>
-        <div id = "leftArm" class = "hangmanBody"> </div>
-        <div id = "rightArm" class = "hangmanBody"> </div>
-        <div id = "leftLeg" class = "hangmanBody"> </div>
-        <div id = "rightLeg" class = "hangmanBody"> </div>
+      <div id = "head" class = "hangmanBody displayHangman"> </div>
+      <div id = "body" class = "hangmanBody "> </div>
+      <div id = "leftArm" class = "hangmanBody"> </div>
+      <div id = "rightArm" class = "hangmanBody"> </div>
+      <div id = "leftLeg" class = "hangmanBody"> </div>
+      <div id = "rightLeg" class = "hangmanBody"> </div>
     </div>
 
   </main>
 
   <footer>
-    <h4> © Copyright 2017 </h4>
+    <h4> &copy; Copyright 2017 </h4>
+    <!-- Better to use the HTML symbol entities to ensure more cross browser compatibility -->
+    <!-- Check out this link for more info: https://www.w3schools.com/html/html_symbols.asp -->
   </footer>
 
   </body>
 </html>
+
+<!-- HTML is pretty good overall.  I like the semantic section dividers (header, main, footer), and things are properly nested and formatted -->
+<!-- I mentioned some of this above, but watch the naming conventions in HTML (`kabob-case`), and you typically don't see spaces inbetween attributes and values in HTML elements -->
