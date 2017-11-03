@@ -25,7 +25,6 @@ main{
   height: 20px;
   text-align: center;
   vertical-align: middle;
-
   font-size: 18px;
   font-family: Helvetica;
   font-weight: bold;
@@ -33,15 +32,18 @@ main{
 }
 #hangman-wrapper{
   position: relative;
-  height : 500px;
-  width : 500px;
+  height: 500px;
+  width: 500px;
+  min-width: 500px;
 }
+/*The problem with the hangman getting deformed has to do with the `hangman-wrapper` getting smaller as the page gets smaller. One way to fix this is to put a `min-width` property on the hangman-wrapper*/
 
 .hangmansAltar{
-  position : absolute;
-  border  : 3px solid black;
-  height : 100px;
-  width: : 3px;
+  position: absolute;
+  border: 3px solid black;
+  height: 100px;
+  width: 3px;
+  /*Make sure you pay attention to the formatting/neatness of your code.  colons should be attached to the declaration.  Run your code through a validator to make sure there are no errors.  */
 }
 .hangmanBody{
   position: absolute;
@@ -113,4 +115,7 @@ main{
   transform: rotate(135deg);
   top : 61%;
   right : 25%;
-}
+} /*There seems to be a good amount of repeated code here that could be abstracted into a seperate class - maybe hangman-body or body-part?*/
+/*Nice job making your Hangman with all CSS!  Good job keeping everything fairly semantic as well.*/
+/*I think a bit more styling of your page could help make your content a lot more fun for the user*/
+/*You could mess with the buttons and input styles, and background color of the page for instance.*/
