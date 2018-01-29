@@ -1,0 +1,48 @@
+user types in game word then clicks extreme mode
+
+display instructions in alert (not sure if this makes the function wait)
+
+countdown
+
+show some letter divs (separated)
+
+ding bell for user 2 to begin
+
+ding bell to end user 2
+
+reset board to standard
+
+run contact sport function
+
+
+**need to contain whole game within function standard()
+
+var extremeModeButton = $('.extremeMode')
+extremeMode.on('click', extremeModeGameplay)
+
+function extremeModeGameplay (){
+  alert () //INSTRUCTIONS GO HERE
+
+  //countdown function for users to get ready (could just be screen
+  //that says look away player 2)
+
+  // reveal divs to be hidden by player 1
+
+  // wait 5 seconds then ding the bell
+
+ *player 1 attempt to hide them*
+
+  //wait 15 seconds then ding bell again
+  //put board back to normal and commence game
+
+
+
+  triesLeft = 6
+  wordEntry = $('.wordEntry').val()
+  lettersInWord = wordEntry.split('')
+  previouslyGuessed = []
+  $('.hangmanBody').hide()
+
+
+standard()
+}
